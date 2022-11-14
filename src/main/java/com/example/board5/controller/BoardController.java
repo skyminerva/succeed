@@ -46,8 +46,4 @@ public class BoardController {
 		return "home";
 	}
 	
-	public Model selectListBoard(Model model) throws Exception {
-		
-		return model;
-	}
 }
