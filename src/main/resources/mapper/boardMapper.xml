@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board5.dao.BoardMapper">
+	<select id="selectNow" resultType="string">
+		SELECT now()
+	</select>
+	
+	<select id="selectBoardAll" resultType="com.example.board5.vo.BoardVo">
+		SELECT 
+			id
+			, name
+			, title
+			, regdate
+		 FROM board
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="com.example.board5.vo.BoardVo">
+		SELECT 
+			id
+			, name
+			, title
+			, content
+			, regdate
+		FROM board
+		WHERE id = #{id}
+	</select>
+	
+	<insert id="insertBoard" parameterType="com.example.board5.vo.BoardVo" >
+		INSERT INTO (
+			id
+			, name
+			, title
+			, content
+			, regdate
+		) VALUES ( 
+			#{id}
+			, #{name}
+			, #{title}
+			, #{content}
+			, CURRENT_DATE
+			)
+			 
+	</insert>
+</mapper>
