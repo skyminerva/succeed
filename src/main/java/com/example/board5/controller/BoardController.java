@@ -59,7 +59,7 @@ public class BoardController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("/boardAll");
+		mav.setViewName("boardAll");
 		
 		mav.addObject("board", resultList);
 		
@@ -76,7 +76,7 @@ public class BoardController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("/selcetBoard");
+		mav.setViewName("selcetBoard");
 		
 		mav.addObject("selectBoard", boardVo);
 		
@@ -98,7 +98,7 @@ public class BoardController {
 	}
 	
 	
-	// write 화면 (이 화면도 안나옴)
+	// write 화면 확인용
 	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
 	public void writeView() throws Exception{
 		logger.info("writeView");
