@@ -9,10 +9,7 @@
 	
 	<select id="selectBoardAll" resultType="com.example.board5.vo.BoardVo">
 		SELECT 
-			id
-			, name
-			, title
-			, regdate
+			*
 		 FROM board
 	</select>
 	
@@ -28,7 +25,7 @@
 	</select>
 	
 	<insert id="insertBoard" parameterType="com.example.board5.vo.BoardVo" >
-		INSERT INTO (
+		INSERT INTO board(
 			id
 			, name
 			, title
@@ -41,6 +38,14 @@
 			, #{content}
 			, CURRENT_DATE
 			)
-			 
 	</insert>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board
+		WHERE id = #{id}
+	</delete>
+	
+	<update id="updateBoard" parameterType="com.example.board5.vo.BoardVo">
+	
+	</update>
 </mapper>

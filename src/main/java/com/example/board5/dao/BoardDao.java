@@ -22,16 +22,25 @@ public class BoardDao {
 	
 	// 게시판 전체
 	public List<BoardVo> selectBoardAll() throws Exception {
-		return session.selectList("com.example.board5.dao.BoardMapper.selecBoardAll");
+		return session.selectList("com.example.board5.dao.BoardMapper.selectBoardAll");
 	}
 	
 	// 셀렉트 게시판 한개 
 	public BoardVo selectBoard(int id) throws Exception {
-		return session.selectOne("com.example.board5.dao.BoardMapper.selecBoard", id);
+		return session.selectOne("com.example.board5.dao.BoardMapper.selectBoard", id);
 	}
 	
 	// 게시판 등록
-	public int insertBoard(BoardVo vo) throws Exception {
-		return session.insert("com.example.board5.dao.BoardMapper.insertBoard", vo);
+	public int insertBoard(BoardVo boardVo) throws Exception {
+		return session.insert("com.example.board5.dao.BoardMapper.insertBoard", boardVo);
+	}
+	// 게시판 삭제
+	public int deleteBoard(int id) {
+		return session.delete("com.example.board5.dao.BoardMapper.insertBoard", id);
+	}
+	
+	// 게시판 수정
+	public int updateBoard(BoardVo boardVo) {
+		return session.update("com.example.board5.dao.BoardMapper.updateBoard", boardVo);
 	}
 }
